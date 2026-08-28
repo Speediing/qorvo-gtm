@@ -1,10 +1,12 @@
-# Grok Bot for Datadog GTM
+# Qorvo x SpaceXAI
 
-Passworded site. Grok Bot from SpaceXAI, for Datadog GTM.
+Passworded site. A point of view for Qorvo. Grok Bot from SpaceXAI.
 
 ## What it is
 
-Three GTM jobs on one page. Each job has a short problem statement, an interactive Grok Bot demo, and the matching Krista Letz clips under that demo. Below that: a light index of the clips and the public Grok Bot quote wall.
+Three illustrative workflows on one page. Each workflow has a short problem statement, an interactive Grok Bot demo, and a review-ready draft. Below that: a comparison table and six public Grok Bot testimonials.
+
+The workflows are not a confirmed Qorvo need. They stay in draft until a person reviews them.
 
 ## Run locally
 
@@ -14,18 +16,16 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Default password is `land2expand` (override with `SITE_PASSWORD`).
+Open [http://localhost:3000](http://localhost:3000). Set `SITE_PASSWORD=land2expand` in `.env.local`. The site fails closed if that variable is missing.
 
-## Krista clips
-
-Download into `private/media/krista-clips/` from the GitHub release (served only through the passworded `/api/media/...` route):
+## Content guard
 
 ```bash
-gh release download krista-gtm-clips-720p-2026-08-26 \
-  --repo Speediing/grok-bot-quotes \
-  --dir private/media/krista-clips
+npm run check:content
 ```
+
+The guard scans authored `src`, public text assets, README, package metadata, and `.env.example`. It fails on leftover customer tokens, banned accent hexes, and the U+2014 character.
 
 ## Deploy
 
-Preview only under the `jasonwiker` Vercel team, project name `datadog-cro`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.
+Preview only under the `jasonwiker` Vercel team, project name `qorvo-gtm`. Set `SITE_PASSWORD=land2expand`. Do not promote to a public production domain until Jason says so.

@@ -140,7 +140,7 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
           </div>
           <footer>
             <span className="story-wave">||||||||||||</span>
-            Granola is listening
+            Notes are open
           </footer>
         </div>
       );
@@ -153,7 +153,7 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
           </header>
           <blockquote>
             <strong>{visual.speaker}</strong>
-            “{visual.quote}”
+            "{visual.quote}"
           </blockquote>
           <footer>
             {visual.signals.map((signal) => (
@@ -182,10 +182,18 @@ function LiveVisual({ visual }: { visual: StoryVisual }) {
         <div className="story-ui story-email-ui" aria-hidden>
           <header className="story-ui-bar">
             <strong>Inbox</strong>
-            <span>5:27 AM</span>
+            <span>New</span>
           </header>
           <div className="story-email-body">
-            <span className="story-avatar">JH</span>
+            <span className="story-avatar">
+              {visual.sender
+                .split(/[^A-Za-z]+/)
+                .filter(Boolean)
+                .map((part) => part[0])
+                .join("")
+                .slice(0, 2)
+                .toUpperCase() || "SC"}
+            </span>
             <p>
               <strong>{visual.sender}</strong>
               <small>{visual.subject}</small>

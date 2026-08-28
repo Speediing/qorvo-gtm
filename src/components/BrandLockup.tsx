@@ -8,9 +8,9 @@ export function BrandLockup({
     <div className={`brand-lockup brand-lockup-${size}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/datadog-wordmark.svg"
-        alt="Datadog"
-        className="brand-dd"
+        src="https://www.qorvo.com/qorvo-logo.svg"
+        alt="Qorvo"
+        className="brand-qorvo"
       />
       <span className="brand-times" aria-hidden>
         ×

@@ -1,11 +1,23 @@
 import { NextResponse } from "next/server";
 import { AUTH_COOKIE, passwordMatches, sessionToken } from "@/lib/auth";
 
-function safeNext(value: string | null | undefined): string {
-  if (!value || !value.startsWith("/") || value.startsWith("//")) {
+function safeNext(
+  value: string | null | undefined,
+  requestUrl: string,
+): string {
+  if (!value || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) {
     return "/";
   }
-  return value;
+  try {
+    const base = new URL(requestUrl);
+    const target = new URL(value, base);
+    if (target.origin !== base.origin) {
+      return "/";
+    }
+    return `${target.pathname}${target.search}${target.hash}`;
+  } catch {
+    return "/";
+  }
 }
 
 export async function POST(request: Request) {
@@ -16,11 +28,11 @@ export async function POST(request: Request) {
   if (contentType.includes("application/json")) {
     const body = (await request.json()) as { password?: string; next?: string };
     password = body.password || "";
-    next = safeNext(body.next);
+    next = safeNext(body.next, request.url);
   } else {
     const form = await request.formData();
     password = String(form.get("password") || "");
-    next = safeNext(String(form.get("next") || "/"));
+    next = safeNext(String(form.get("next") || "/"), request.url);
   }
 
   if (!passwordMatches(password)) {

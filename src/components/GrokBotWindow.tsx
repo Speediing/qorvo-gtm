@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type RefObject } from "react";
 import { beatFor } from "@/data/screens";
 import type { CroJob, Participant } from "@/data/types";
 import type { DemoPlayback } from "@/hooks/useDemoPlayback";
-import { DEFAULT_ACCOUNT } from "@/lib/account";
 import { ArtifactCard } from "./ArtifactCard";
 import { BotComputer } from "./BotComputer";
 
@@ -191,11 +190,8 @@ export function GrokBotWindow({
     playing,
     done,
     typingFrom,
-    draftAccount,
-    setDraftAccount,
     setPlaying,
     replay,
-    applyAccount,
     current,
   } = playback;
 
@@ -381,16 +377,6 @@ export function GrokBotWindow({
         >
           {done ? "Replay" : playing ? "Pause" : "Play"}
         </button>
-        <form onSubmit={applyAccount}>
-          <label htmlFor={`acct-${job.id}`}>Account</label>
-          <input
-            id={`acct-${job.id}`}
-            value={draftAccount}
-            onChange={(event) => setDraftAccount(event.target.value)}
-            placeholder={DEFAULT_ACCOUNT}
-          />
-          <button type="submit">Use name</button>
-        </form>
       </div>
     </div>
   );

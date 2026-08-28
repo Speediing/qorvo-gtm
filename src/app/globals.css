@@ -6,8 +6,8 @@
   --paper: #f5f1e8;
   --surface: #fbf9f4;
   --line: #d8d3c8;
-  --accent: #632ca6;
-  --accent-dark: #4c1d82;
+  --accent: #b11f3a;
+  --accent-dark: #7c1630;
   --sage: #788274;
   --blue: #5e7180;
   --bg: var(--paper);
@@ -281,6 +281,15 @@ button:active:not(:focus-visible),
   padding: 0 clamp(24px, 5vw, 72px);
 }
 
+.report-band {
+  position: relative;
+  z-index: 2;
+  margin-top: -min(22vw, 13rem);
+  padding-top: 0.4rem;
+  background: var(--paper);
+  box-shadow: 0 -1.6rem 3.4rem rgba(32, 35, 31, 0.14);
+}
+
 .band,
 .band-dark,
 .band-cream {
@@ -315,16 +324,16 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup {
-  --dd-h: 36px;
+  --mark-h: 17px;
   display: inline-flex;
-  align-items: flex-start;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.22rem;
   min-width: 0;
   color: var(--ink);
   text-decoration: none;
 }
 
-.brand-dd,
+.brand-qorvo,
 .brand-sxai {
   display: block;
   width: auto;
@@ -334,14 +343,13 @@ button:active:not(:focus-visible),
   object-fit: contain;
 }
 
-.brand-dd {
-  height: var(--dd-h);
+.brand-qorvo {
+  height: var(--mark-h);
 }
 
 .brand-sxai {
-  height: calc(var(--dd-h) * 0.58);
-  max-width: calc(var(--dd-h) * 4.8);
-  margin-top: calc(var(--dd-h) * 0.2);
+  height: calc(var(--mark-h) * 0.72);
+  max-width: calc(var(--mark-h) * 4.2);
   filter: brightness(0);
 }
 
@@ -350,19 +358,19 @@ button:active:not(:focus-visible),
 }
 
 .brand-lockup-sm {
-  --dd-h: 24px;
+  --mark-h: 17px;
 }
 
 .brand-lockup-md,
 .brand-lockup-lg {
-  --dd-h: 32px;
+  --mark-h: 18px;
 }
 
 .brand-times {
   align-self: center;
   margin-top: 0;
   color: var(--muted);
-  font-size: calc(var(--dd-h) * 0.28);
+  font-size: calc(var(--mark-h) * 0.55);
   font-weight: 300;
   line-height: 1;
 }
@@ -527,14 +535,14 @@ button:active:not(:focus-visible),
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 50%;
-  background: #5bc98b;
-  box-shadow: 0 0 0 0.3rem rgba(91, 201, 139, 0.13);
+  background: var(--accent);
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .background-agent-pulse::after {
   position: absolute;
   inset: -0.32rem;
-  border: 1px solid rgba(91, 201, 139, 0.48);
+  border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
   border-radius: 50%;
   content: "";
 }
@@ -719,9 +727,9 @@ button:active:not(:focus-visible),
   gap: 0.65rem;
   margin: 0 0 1.2rem;
   padding: 0.58rem 0.76rem;
-  border: 1px solid color-mix(in srgb, #2b7a4b 22%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
   border-radius: 999px;
-  background: color-mix(in srgb, #5bc98b 7%, var(--surface));
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
 }
 
 .background-agent p {
@@ -909,7 +917,7 @@ button:active:not(:focus-visible),
 
 .story-transcript-ui {
   background:
-    linear-gradient(155deg, rgba(99, 44, 166, 0.08), transparent 55%),
+    linear-gradient(155deg, rgba(177, 31, 58, 0.08), transparent 55%),
     var(--surface);
 }
 
@@ -950,7 +958,7 @@ button:active:not(:focus-visible),
 }
 
 .story-deck-ui {
-  background: #1b1820;
+  background: #171614;
 }
 
 .story-deck-ui .story-ui-bar {
@@ -975,12 +983,12 @@ button:active:not(:focus-visible),
   border-radius: 0.38rem;
   color: #fff;
   background:
-    radial-gradient(circle at 90% 12%, rgba(99, 44, 166, 0.8), transparent 34%),
-    #29242f;
+    radial-gradient(circle at 90% 12%, rgba(177, 31, 58, 0.8), transparent 34%),
+    #2a221d;
 }
 
 .story-mini-slide small {
-  color: #c6a7ea;
+  color: #f3c7c0;
   font-family: var(--mono);
   font-size: 0.45rem;
   font-weight: 700;
@@ -1001,8 +1009,8 @@ button:active:not(:focus-visible),
   width: fit-content;
   padding: 0.19rem 0.34rem;
   border-radius: 0.2rem;
-  color: #1b1820;
-  background: #d9b8ff;
+  color: #20231f;
+  background: #f3c7c0;
   font-size: 0.48rem;
   font-weight: 700;
 }
@@ -1013,7 +1021,7 @@ button:active:not(:focus-visible),
 
 .story-email-ui {
   background:
-    linear-gradient(145deg, rgba(99, 44, 166, 0.06), transparent 58%),
+    linear-gradient(145deg, rgba(177, 31, 58, 0.06), transparent 58%),
     var(--surface);
 }
 
@@ -1191,7 +1199,7 @@ button:active:not(:focus-visible),
 
 .story-research-ui {
   background:
-    radial-gradient(circle at 50% 60%, rgba(99, 44, 166, 0.11), transparent 48%),
+    radial-gradient(circle at 50% 60%, rgba(177, 31, 58, 0.11), transparent 48%),
     var(--surface);
 }
 
@@ -1275,7 +1283,7 @@ button:active:not(:focus-visible),
 }
 
 .story-outreach-ui {
-  background: #1b1820;
+  background: #171614;
 }
 
 .story-outreach-ui .story-ui-bar {
@@ -1311,8 +1319,8 @@ button:active:not(:focus-visible),
   height: 1.05rem;
   place-items: center;
   border-radius: 50%;
-  color: #1b1820;
-  background: #d9b8ff;
+  color: #20231f;
+  background: #f3c7c0;
   font-size: 0.5rem;
   font-weight: 800;
 }
@@ -1457,15 +1465,13 @@ button:active:not(:focus-visible),
   z-index: 1;
   min-height: 0;
   overflow: hidden;
-  aspect-ratio: 1024 / 676;
-  background: #0a0a0a;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
 }
 
 .heard-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
 }
 
 .heard-bar {
@@ -3729,10 +3735,17 @@ button:active:not(:focus-visible),
 }
 
 .quote-avatar {
+  display: grid;
+  place-items: center;
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  object-fit: cover;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color: var(--accent-dark);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .quote-name {
@@ -3902,6 +3915,10 @@ button:active:not(:focus-visible),
   border: 1px solid var(--line);
   border-radius: 3px;
   box-shadow: none;
+}
+
+.login-card .brand-qorvo {
+  height: 18px;
 }
 
 .login-card .eyebrow {
@@ -4186,6 +4203,105 @@ button:active:not(:focus-visible),
   margin: 1rem 0 0;
   color: var(--ink-soft);
   font-size: 0.82rem;
+}
+
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 2.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fleet-desk {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.fleet-monitor {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 8.4rem;
+  padding: 0.55rem 0.65rem 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px 4px 2px 2px;
+  background: #171614;
+  color: #f4efe6;
+  box-shadow: 0 0.55rem 0 -0.12rem #2c2925;
+}
+
+.fleet-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+}
+
+.fleet-dots {
+  display: flex;
+  gap: 0.22rem;
+}
+
+.fleet-dots i {
+  display: block;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: #5a564f;
+}
+
+.fleet-status {
+  color: #f3c7c0;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fleet-task {
+  margin: 0;
+  color: #efe8dc;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.fleet-base {
+  display: flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: 0.35rem 0.2rem 0;
+}
+
+.fleet-name {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.fleet-desk:focus-visible .fleet-monitor {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 960px) {
+  .fleet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .fleet-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .gb-window {
@@ -5016,10 +5132,18 @@ button:active:not(:focus-visible),
 @media (max-width: 800px) {
   .band-inner,
   .page,
-  .report {
+  .report,
+  .report-band {
     width: 100%;
+  }
+
+  .report {
     padding: 0 max(1.15rem, env(safe-area-inset-right)) 0
       max(1.15rem, env(safe-area-inset-left));
+  }
+
+  .report-band {
+    margin-top: -min(28vw, 8.5rem);
   }
 
   .site-header {
@@ -5158,7 +5282,6 @@ button:active:not(:focus-visible),
   }
 
   .heard-slide {
-    aspect-ratio: 1024 / 676;
     overflow: hidden;
   }
 

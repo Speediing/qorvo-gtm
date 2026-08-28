@@ -3,6 +3,12 @@ import { beatFor, type ComputerBeat } from "@/data/screens";
 import type { DemoPlayback } from "@/hooks/useDemoPlayback";
 import { SiteScreen } from "./SiteScreens";
 
+const SCREEN_LABEL: Record<JobId, string> = {
+  "standardize-room": "Product review",
+  "legal-redlines": "Sample customer",
+  "attach-engine": "Target account",
+};
+
 function activeBeat(jobId: JobId, playback: DemoPlayback): ComputerBeat | undefined {
   const typingId = playback.typingFrom
     ? playback.messages[playback.visibleCount]?.id
@@ -64,7 +70,7 @@ export function BotComputer({
               <SiteScreen
                 beat={beat}
                 message={message}
-                account={playback.account}
+                account={SCREEN_LABEL[jobId]}
                 sent={sent}
               />
             </div>

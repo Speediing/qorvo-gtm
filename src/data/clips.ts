@@ -7,8 +7,8 @@ function clip(
 ): Clip {
   return {
     id,
-    file: `/api/media/krista-clips/${id}.mp4`,
-    poster: `/media/krista-clips/${id}.jpg`,
+    file: `/api/media/clips/${id}.mp4`,
+    poster: `/media/clips/${id}.jpg`,
     title,
     caption,
   };
@@ -17,43 +17,43 @@ function clip(
 export const CLIPS: Record<ClipId, Clip> = {
   "01-morning-inbox": clip(
     "01-morning-inbox",
-    "Morning inbox",
-    "7:30am weekday scan. Flags what needs a reply. Quiet if the inbox is empty.",
+    "Technical question",
+    "A sourced reply stays in draft for review.",
   ),
   "02-prospecting-pg": clip(
     "02-prospecting-pg",
-    "Prospecting",
-    "Five drafted emails. None send until she says so.",
+    "Account research",
+    "Public pages collected for a target account pack.",
   ),
   "03-slides-granola": clip(
     "03-slides-granola",
-    "Slides from the room",
-    "Granola is in. Slides writes the What we heard cards while she is still on the call.",
+    "Product review",
+    "An engineering context brief stays in draft.",
   ),
   "04-engineer-bugbot": clip(
     "04-engineer-bugbot",
-    "Engineer",
-    "Wired to the repo. Answers a setup question without leaving the thread.",
+    "Test notes",
+    "Open test notes stay on the computer.",
   ),
   "05-forecast-sfdc": clip(
     "05-forecast-sfdc",
-    "Forecast",
-    "Demo notes in. Next steps in the format her manager wants.",
+    "Qualification",
+    "Open qualification questions listed for review.",
   ),
   "06-customer-expert": clip(
     "06-customer-expert",
-    "Customer expert",
-    "Who is in the account, what they use, questions in Slack.",
+    "Customer brief",
+    "A review note for the customer team.",
   ),
   "07-customer-exec-brief": clip(
     "07-customer-exec-brief",
-    "Exec brief",
-    "Turns what it just watched her do into a short note for her boss.",
+    "Follow-up",
+    "A follow-up draft. Nothing sent.",
   ),
   "08-chief-groupchat": clip(
     "08-chief-groupchat",
-    "Chief group chat",
-    "Opens a group channel. Chief of Staff, Slides, Engineer. Splits the work.",
+    "Chief of staff",
+    "Work routed across the fleet. Drafts stay drafts.",
   ),
 };
 

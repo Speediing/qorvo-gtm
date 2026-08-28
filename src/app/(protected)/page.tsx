@@ -2,6 +2,7 @@ import { CompareTable } from "@/components/CompareTable";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
+import { RosterChart } from "@/components/RosterChart";
 import { SiteNav } from "@/components/SiteNav";
 import { JOBS } from "@/data/jobs";
 
@@ -12,64 +13,71 @@ export default function HomePage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="hero-watercolor-image"
-          src="/brand/watercolor-pad.png"
+          src="/brand/watercolor-header.svg"
           alt=""
         />
         <SiteNav />
       </div>
 
-      <div className="report">
-        <div className="report-hero">
-          <HeroTelemetry />
-          <section className="hero">
-            <div>
-              <p className="eyebrow">A proactive agent for every Datadog rep</p>
-              <h1>The agents that work while your reps sell.</h1>
-              <p className="hero-intro">
-                Grok Bot listens to calls, watches the inbox, and researches
-                accounts in the background. Work triggers it — not another
-                prompt.
+      <div className="report-band">
+        <div className="report">
+          <div className="report-hero">
+            <HeroTelemetry />
+            <section className="hero">
+              <div>
+                <p className="eyebrow">A point of view for Qorvo</p>
+                <h1>Every agent has a computer.</h1>
+                <p className="hero-intro">
+                  They keep the work around engineering and customer teams
+                  moving. People keep the judgment.
+                </p>
+              </div>
+            </section>
+
+            <section className="usecase-framing">
+              <p className="eyebrow">Three illustrative workflows</p>
+              <h2>
+                Qorvo works across RF, analog, mixed-signal, power,
+                connectivity, and sensing. Agents with computers can keep that
+                work moving while people decide.
+              </h2>
+              <p>
+                Qorvo is preparing for a combination with Skyworks and shifting
+                toward defense, infrastructure, and power. These three workflows
+                are a point of view. They are not a confirmed Qorvo need.
               </p>
+            </section>
+
+            <div className="metric-grid">
+              {JOBS.map((job) => (
+                <a
+                  key={job.id}
+                  className="metric-card"
+                  href={`#${job.id}`}
+                >
+                  <div className="metric-card-top">
+                    <p>Sample {String(job.number).padStart(2, "0")}</p>
+                  </div>
+                  <h2>{job.title}</h2>
+                  <p className="metric-trigger">Starts when {job.trigger.toLowerCase()}</p>
+                </a>
+              ))}
             </div>
-          </section>
+          </div>
 
-          <section className="usecase-framing">
-            <p className="eyebrow">Three sample use cases</p>
-            <h2>
-              Grok Bot gives every seller their own fleet of always-available
-              agent teammates. Anything your sellers do today can be done
-              through Grok Bot.
-            </h2>
-            <p>These are three examples from millions — not the boundary.</p>
-          </section>
+          <RosterChart />
 
-          <div className="metric-grid">
+          <div id="jobs">
             {JOBS.map((job) => (
-              <a
-                key={job.id}
-                className="metric-card"
-                href={`#${job.id}`}
-              >
-                <div className="metric-card-top">
-                  <p>Sample {String(job.number).padStart(2, "0")}</p>
-                </div>
-                <h2>{job.title}</h2>
-                <p className="metric-trigger">Starts when {job.trigger.toLowerCase()}</p>
-              </a>
+              <JobSection key={job.id} job={job} />
             ))}
           </div>
-        </div>
-
-        <div id="jobs">
-          {JOBS.map((job) => (
-            <JobSection key={job.id} job={job} />
-          ))}
         </div>
       </div>
 
       <div className="orbit-break" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/watercolor-orbit.png" alt="" />
+        <img src="/brand/watercolor-orbit.svg" alt="" />
       </div>
 
       <div className="report">
@@ -79,14 +87,14 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <div>
-          <p className="footer-title">Cursor for Datadog</p>
-          <p>Grok Bot for Datadog sales</p>
+          <p className="footer-title">Qorvo x SpaceXAI</p>
+          <p>A point of view for engineering and customer teams</p>
         </div>
         <address className="footer-contact">
-          <p>Datadog&apos;s existing Cursor contact</p>
-          <strong>Madeline Ingleby</strong>
-          <a href="mailto:madeline.ingleby@cursor.com">
-            madeline.ingleby@cursor.com
+          <p>Cursor contact</p>
+          <strong>Mike Weinert</strong>
+          <a href="mailto:mike.weinert@cursor.com">
+            mike.weinert@cursor.com
           </a>
         </address>
       </footer>
