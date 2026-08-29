@@ -917,9 +917,13 @@ button:active:not(:focus-visible),
 @media (prefers-reduced-motion: reduce) {
   .hero-bot-demo,
   .hero-phone-header small span,
-  .hero-phone-message,
   .hero-phone-work,
   .hero-phone-work-label span {
+    animation: none;
+  }
+
+  .hero-phone-message.is-user,
+  .hero-phone-message.is-bot {
     animation: none;
   }
 }
