@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, extname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -57,6 +57,16 @@ const required = [
   "vgpu",
   "15.5.24",
   "src",
+  "<HeroDemo />",
+  "HERO_JOBS",
+  ".hero-phone",
+  ".hero-bot-demo",
+  ".hero-phone-jobs",
+];
+
+const requiredFiles = [
+  "src/components/HeroDemo.tsx",
+  "src/data/hero-jobs.ts",
 ];
 
 function walk(dir, out = []) {
@@ -110,10 +120,22 @@ for (const marker of required) {
   }
 }
 
+for (const rel of requiredFiles) {
+  if (!existsSync(join(root, rel))) {
+    hits.push(`missing required file ${rel}`);
+  }
+}
+
 const fleet = readFileSync(join(root, "src/data/fleet.ts"), "utf8");
 const fleetIds = fleet.match(/^\s*id:\s*"/gm) ?? [];
 if (fleetIds.length !== 8) {
   hits.push(`expected exactly eight fleet entries, found ${fleetIds.length}`);
+}
+
+const heroJobs = readFileSync(join(root, "src/data/hero-jobs.ts"), "utf8");
+const heroJobIds = heroJobs.match(/^\s*id:\s*"/gm) ?? [];
+if (heroJobIds.length !== 8) {
+  hits.push(`expected exactly eight hero jobs, found ${heroJobIds.length}`);
 }
 
 if (hits.length) {

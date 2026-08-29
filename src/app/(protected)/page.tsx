@@ -1,4 +1,5 @@
 import { CompareTable } from "@/components/CompareTable";
+import { HeroDemo } from "@/components/HeroDemo";
 import { HeroTelemetry } from "@/components/HeroTelemetry";
 import { JobSection } from "@/components/JobSection";
 import { QuoteWall } from "@/components/QuoteWall";
@@ -23,16 +24,7 @@ export default function HomePage() {
         <div className="report">
           <div className="report-hero">
             <HeroTelemetry />
-            <section className="hero">
-              <div>
-                <p className="eyebrow">A point of view for Qorvo</p>
-                <h1>Every agent has a computer.</h1>
-                <p className="hero-intro">
-                  They keep the work around engineering and customer teams
-                  moving. People keep the judgment.
-                </p>
-              </div>
-            </section>
+            <HeroDemo />
 
             <section className="usecase-framing">
               <p className="eyebrow">Three illustrative workflows</p>
